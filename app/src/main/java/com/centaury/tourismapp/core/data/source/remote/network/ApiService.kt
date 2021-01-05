@@ -1,7 +1,7 @@
 package com.centaury.tourismapp.core.data.source.remote.network
 
 import com.centaury.tourismapp.core.data.source.remote.response.TourismResponse
-import retrofit2.Call
+import io.reactivex.Flowable
 import retrofit2.http.GET
 
 /**
@@ -10,5 +10,5 @@ import retrofit2.http.GET
  */
 interface ApiService {
     @GET("list")
-    fun getList(): Call<TourismResponse>
+    fun getList(): Flowable<TourismResponse>
 }
