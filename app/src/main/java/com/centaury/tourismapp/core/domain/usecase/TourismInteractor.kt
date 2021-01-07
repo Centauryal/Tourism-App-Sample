@@ -4,12 +4,14 @@ import com.centaury.tourismapp.core.data.Resource
 import com.centaury.tourismapp.core.domain.model.Tourism
 import com.centaury.tourismapp.core.domain.repository.ITourismRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
 /**
  * @Author Centaury (alfa.arnialfa@gmail.com)
  * Created by Centaury on 1/3/2021.
  */
-class TourismInteractor(private val tourismRepository: ITourismRepository) : TourismUseCase {
+class TourismInteractor @Inject constructor(private val tourismRepository: ITourismRepository) :
+    TourismUseCase {
     override fun getAllTourism(): Flow<Resource<List<Tourism>>> =
         tourismRepository.getAllTourism()
 
