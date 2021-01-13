@@ -1,6 +1,5 @@
 package com.centaury.tourismapp.home
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,34 +9,23 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.centaury.tourismapp.R
-import com.centaury.tourismapp.TourismApp
 import com.centaury.tourismapp.core.data.Resource
 import com.centaury.tourismapp.core.ui.TourismAdapter
-import com.centaury.tourismapp.core.ui.ViewModelFactory
 import com.centaury.tourismapp.databinding.FragmentHomeBinding
 import com.centaury.tourismapp.detail.DetailTourismActivity
-import javax.inject.Inject
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
-    @Inject
-    lateinit var factory: ViewModelFactory
-
-    private val homeViewModel: HomeViewModel by viewModels {
-        factory
-    }
+    private val homeViewModel: HomeViewModel by viewModels()
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        (requireActivity().application as TourismApp).appComponent.inject(this)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }

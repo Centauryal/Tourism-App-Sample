@@ -3,6 +3,8 @@ package com.centaury.tourismapp.core.di
 import com.centaury.tourismapp.core.data.source.remote.network.ApiService
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -14,6 +16,7 @@ import java.util.concurrent.TimeUnit
  * Created by Centaury on 1/7/2021.
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 class NetworkModule {
 
     @Provides
