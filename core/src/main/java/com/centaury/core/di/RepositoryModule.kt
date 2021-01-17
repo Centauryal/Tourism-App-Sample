@@ -1,7 +1,7 @@
-package com.centaury.tourismapp.di
+package com.centaury.core.di
 
-import com.centaury.core.domain.usecase.TourismInteractor
-import com.centaury.core.domain.usecase.TourismUseCase
+import com.centaury.core.data.TourismRepository
+import com.centaury.core.domain.repository.ITourismRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -13,8 +13,8 @@ import dagger.hilt.android.components.ApplicationComponent
  */
 @Module
 @InstallIn(ApplicationComponent::class)
-abstract class AppModule {
+abstract class RepositoryModule {
 
     @Binds
-    abstract fun provideTourismUseCase(tourismInteractor: TourismInteractor): TourismUseCase
+    abstract fun provideRepository(tourismRepository: TourismRepository): ITourismRepository
 }

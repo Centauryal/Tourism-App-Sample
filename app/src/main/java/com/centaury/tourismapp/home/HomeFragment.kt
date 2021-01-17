@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.centaury.core.data.Resource
+import com.centaury.core.ui.TourismAdapter
 import com.centaury.tourismapp.R
-import com.centaury.tourismapp.core.data.Resource
-import com.centaury.tourismapp.core.ui.TourismAdapter
 import com.centaury.tourismapp.databinding.FragmentHomeBinding
 import com.centaury.tourismapp.detail.DetailTourismActivity
 import dagger.hilt.android.AndroidEntryPoint

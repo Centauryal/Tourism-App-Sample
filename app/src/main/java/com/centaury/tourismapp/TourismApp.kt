@@ -8,5 +8,4 @@ import dagger.hilt.android.HiltAndroidApp
  * Created by Centaury on 1/6/2021.
  */
 @HiltAndroidApp
-class TourismApp : Application() {
-}
+class TourismApp : Application()

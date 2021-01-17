@@ -5,8 +5,8 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.centaury.core.domain.model.Tourism
 import com.centaury.tourismapp.R
-import com.centaury.tourismapp.core.domain.model.Tourism
 import com.centaury.tourismapp.databinding.ActivityDetailTourismBinding
 import dagger.hilt.android.AndroidEntryPoint
 
