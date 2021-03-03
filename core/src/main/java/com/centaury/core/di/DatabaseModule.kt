@@ -9,6 +9,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import javax.inject.Singleton
 
 /**
@@ -21,11 +23,15 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideDatabase(@ApplicationContext context: Context): TourismDatabase =
-        Room.databaseBuilder(
-            context,
-            TourismDatabase::class.java, "Tourism.db"
-        ).fallbackToDestructiveMigration().build()
+    fun provideDatabase(@ApplicationContext context: Context): TourismDatabase {
+        val builder = Room.databaseBuilder(context, TourismDatabase::class.java, "Tourism.db")
+                .fallbackToDestructiveMigration()
+        val factory = SupportFactory(SQLiteDatabase.getBytes("TourismApps".toCharArray()))
+
+        builder.openHelperFactory(factory)
+
+        return builder.build()
+    }
 
     @Provides
     fun provideTourismDao(database: TourismDatabase): TourismDao = database.tourismDao()
