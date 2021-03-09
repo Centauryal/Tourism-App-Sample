@@ -24,9 +24,7 @@ class NetworkModule {
     fun provideOkHttpCLient(): OkHttpClient {
         val hostname = "tourism-api.dicoding.dev"
         val certificatePinner = CertificatePinner.Builder()
-             .add(hostname, "sha256/paJOw+DTCx1KaSMeALtM5gXuxJN4lP04qMKhSXBFa9Y=")
-             .add(hostname, "sha256/qPerI4uMwY1VrtRE5aBY8jIQJopLUuBt2+GDUWMwZn4=")
-             .add(hostname, "sha256/iie1VXtL7HzAMF+/PVPR9xzT80kQxdZeJ+zduCB3uj0=")
+             .add(hostname, "sha256/efJRcxel8l8esct4H2iQRwcvs79t8AKGlcgiaBPor98=")
              .build()
         return OkHttpClient.Builder()
              .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))

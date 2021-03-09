@@ -2,6 +2,7 @@
 -keep,includedescriptorclasses class net.sqlcipher.** { *; }
 -keep,includedescriptorclasses interface net.sqlcipher.** { *; }
 
+
 ##---------------Begin: proguard configuration for Retrofit ----------
 # Retrofit does reflection on generic parameters. InnerClasses is required to use Signature and
 # EnclosingMethod is required to use InnerClasses.
@@ -46,6 +47,29 @@ public *;
 }
 -keep class com.bumptech.glide.load.data.ParcelFileDescriptorRewinder$InternalRewinder {
 *** rewind();
+}
+
+##---------------Begin: proguard configuration for Moshi ----------
+# JSR 305 annotations are for embedding nullability information.
+-dontwarn javax.annotation.**
+
+-keepclasseswithmembers class * {
+    @com.squareup.moshi.* <methods>;
+}
+
+-keep @com.squareup.moshi.JsonQualifier interface *
+
+# Enum field names are used by the integrated EnumJsonAdapter.
+# values() is synthesized by the Kotlin compiler and is used by EnumJsonAdapter indirectly
+# Annotate enums with @JsonClass(generateAdapter = false) to use them with Moshi.
+-keepclassmembernames @com.squareup.moshi.JsonClass class * extends java.lang.Enum {
+    <fields>;
+    **[] values();
+}
+
+# Keep helper method to avoid R8 optimisation that would keep all Kotlin Metadata when unwanted
+-keepclassmembers class com.squareup.moshi.internal.Util {
+    private static java.lang.String getKotlinMetadataClassName();
 }
 
 # Uncomment for DexGuard only

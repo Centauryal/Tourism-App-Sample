@@ -25,6 +25,9 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each {
+            it.buildConfigField("String", "MAPBOX_ACCESS_TOKEN", MAPBOX_ACCESS_TOKEN)
+        }
     }
 
     compileOptions {
@@ -44,4 +47,7 @@ dependencies {
     implementation project(":core")
     implementation project(":app")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:$mapbox_version"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-telemetry:$mapbox_telemetry_version"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9:$mapbox_annotation_version"
 }

@@ -1,18 +1,20 @@
 package com.centaury.core.data.source.remote.response
 
+import androidx.annotation.Keep
 import com.squareup.moshi.Json
 
+@Keep
 data class TourismResponse(
 
-    @Json(name = "places")
+    @field:Json(name = "places")
     val places: List<PlacesItem>,
 
-    @Json(name = "count")
+    @field:Json(name = "count")
     val count: Int,
 
-    @Json(name = "error")
+    @field:Json(name = "error")
     val error: Boolean,
 
-    @Json(name = "message")
+    @field:Json(name = "message")
     val message: String
 )

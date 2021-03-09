@@ -49,4 +49,6 @@ android {
 dependencies {
     implementation project(":core")
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation "com.airbnb.android:lottie:$lottie_version"
+    implementation "com.facebook.shimmer:shimmer:$shimmer_version"
 }

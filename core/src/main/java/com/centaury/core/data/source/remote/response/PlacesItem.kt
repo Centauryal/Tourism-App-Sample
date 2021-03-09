@@ -1,33 +1,35 @@
 package com.centaury.core.data.source.remote.response
 
+import androidx.annotation.Keep
 import com.squareup.moshi.Json
 
 /**
  * @Author Centaury (alfa.arnialfa@gmail.com)
  * Created by Centaury on 1/3/2021.
  */
+@Keep
 data class PlacesItem(
-    @Json(name = "image")
+    @field:Json(name = "image")
     val image: String,
 
-    @Json(name = "address")
+    @field:Json(name = "address")
     val address: String,
 
-    @Json(name = "like")
+    @field:Json(name = "like")
     val like: Int,
 
-    @Json(name = "latitude")
+    @field:Json(name = "latitude")
     val latitude: Double,
 
-    @Json(name = "name")
+    @field:Json(name = "name")
     val name: String,
 
-    @Json(name = "description")
+    @field:Json(name = "description")
     val description: String,
 
-    @Json(name = "id")
+    @field:Json(name = "id")
     val id: Int,
 
-    @Json(name = "longitude")
+    @field:Json(name = "longitude")
     val longitude: Double
 )
